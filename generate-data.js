@@ -22,9 +22,8 @@ const randomUser = (count) => {
     return listUser
 }
 (() => {
-    const db = {
-        User: randomUser(20)
-    }
+    const db = randomUser(20)
+
     //write file db.json
     fs.writeFile('db.json', JSON.stringify(db), () => {
         console.log("Generate data successfully !!!");
