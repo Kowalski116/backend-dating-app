@@ -15,7 +15,7 @@ const randomUser = (count) => {
             gender: faker.name.gender(),
             email: faker.internet.email(),
             dateOfBirth: randomDate(new Date(2000, 0, 1), new Date(1980, 0, 1)),
-            picture: faker.image.people(),
+            picture: faker.image.avatar(),
         }
         listUser.push(user)
     }
