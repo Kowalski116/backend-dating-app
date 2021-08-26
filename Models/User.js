@@ -8,6 +8,8 @@ const userSchema = mongoose.Schema({
     email: String,
     dateOfBirth: String,
     phone: String,
+    like: [String],
+    pass: [String]
 
 }, {
     timestamps: true,
