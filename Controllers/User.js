@@ -33,4 +33,36 @@ const getDetailUser = async (req, res) => {
     }
 }
 
-module.exports = { getUsers, getDetailUser }
+const postLikeUser = async (req, res) => {
+    try {
+        const { idUser, idLikeUser } = req.body;
+        const user = await User.findOne({ id: idUser });
+        if (user.like) {
+            user.like = [...user.like, idLikeUser]
+        } else {
+            user.like = [idLikeUser]
+
+        }
+        await user.save()
+        res.status(200).json({ message: "Liked" })
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+const postPassUser = async (req, res) => {
+    try {
+        const { idUser, idLikeUser } = req.body;
+        const user = await User.findOne({ id: idUser });
+        if (user.pass) {
+            user.pass = [...user.pass, idLikeUser]
+        } else {
+            user.pass = [idLikeUser]
+        }
+        await user.save()
+        res.status(200).json({ message: "Passed" })
+    } catch (error) {
+        res.status(404).json({ message: error.message })
+    }
+}
+
+module.exports = { getUsers, getDetailUser, postLikeUser, postPassUser }
